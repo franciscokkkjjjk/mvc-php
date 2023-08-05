@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+}
+
+.icon-trash {
+    background-image: url('../imgs/lixo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-edit {
+    background-image: url('../imgs/editar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.icon-small {
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 5px;
+}

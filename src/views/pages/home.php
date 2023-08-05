@@ -13,8 +13,8 @@
                 <td style="text-align: center;"> <?= $item['id']; ?> </td>
                 <td> <?= $item['nome']; ?> </td>
                 <td> <?= $item['email']; ?> </td>
-                <td><a href="<?= $base;?>/usuario/<?=$item['id']?>/editar">[EDITAR]</td>
-                <td><a href="<?= $base;?>/usuario/<?=$item['id']?>/excluir">[EXCLUIR]</td>
+                <td><a class="icon-small icon-edit" href="<?= $base;?>/usuario/<?=$item['id']?>/editar"></td>
+                <td><a class="icon-small icon-trash" href="<?= $base;?>/usuario/<?=$item['id']?>/excluir"></td>
             </tr>
         <?php endforeach; ?>
     </table>
