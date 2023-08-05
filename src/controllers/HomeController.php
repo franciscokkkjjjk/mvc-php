@@ -15,6 +15,10 @@ class HomeController extends Controller {
 
     public function sobreP($args) {
         print_r($args);
+        $this->render('ola', ['nome' => $args['nome'], 'au' => $args['au']]); 
     }
 
+    public function cachaca() {
+        $this->render('ola');
+    }
 }
