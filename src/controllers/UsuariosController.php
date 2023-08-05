@@ -25,8 +25,41 @@ class UsuariosController extends Controller {
                 $this->redirect('/');
             } 
         }
-        
+
         $this->redirect('/novo');
     }
 
+    public function usuarioEdit($args) {
+        $usuario = Usuario::select()->find($args['id']);
+
+        if(count($usuario) > 0) {
+            $this->render('edit', ['usuario' => $usuario]);
+        } else {
+            $this->redirect("/");
+        }
+    }
+
+    public function usuarioEditAction($args) {
+        $nome = filter_input(INPUT_POST, 'nome');
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        
+        if($nome && $email) {
+            Usuario::update()
+                ->set('nome', $nome)
+                ->set('email', $email)
+                ->where('id', $args['id'])
+            ->execute();
+
+            $this->redirect('/');
+        }
+
+        $this->redirect("/usuario/".$args['id']."/editar");
+    }
+
+    public function usuarioExcluirAction($args) {
+        Usuario::delete()
+            ->where('id', $args['id'])
+        ->execute();
+        $this->redirect('/');
+    }
 }

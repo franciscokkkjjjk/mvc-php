@@ -8,8 +8,8 @@ class HomeController extends Controller {
 
     public function index() {
         $nome = Usuario::select()->execute();
-        print_r($nome);
-        $this->render('home', ['nome' => $nome]);
+
+        $this->render('home', ['usuarios' => $nome]);
     }
     
 }

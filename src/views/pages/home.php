@@ -1,23 +1,22 @@
-<?php $render('header'); 
-?>
+<?php $render('header'); ?>
     <hr>
     <a href="<?= $base;?>/novo">Novo Usuario</a>
-    <table border="1">
+    <table border="2">
         <tr>
             <th>ID</th>
             <th>NOME</th>
             <th>EMAIL</th>
             <th colspan="2">ACTIONS</th>
         </tr>
-        <?php foreach($nome as $item) {?>
+        <?php foreach($usuarios as $item): ?>
             <tr>
                 <td style="text-align: center;"> <?= $item['id']; ?> </td>
                 <td> <?= $item['nome']; ?> </td>
                 <td> <?= $item['email']; ?> </td>
-                <td><a href="<?= $base;?>/edit/<?=$item['id']?>">[EDITAR]</td>
-                <td><a href="<?= $base;?>/delete/<?=$item['id']?>">[EXCLUIR]</td>
+                <td><a href="<?= $base;?>/usuario/<?=$item['id']?>/editar">[EDITAR]</td>
+                <td><a href="<?= $base;?>/usuario/<?=$item['id']?>/excluir">[EXCLUIR]</td>
             </tr>
-        <?php } ?>
+        <?php endforeach; ?>
     </table>
     <hr>
 <?php 
