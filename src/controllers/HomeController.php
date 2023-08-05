@@ -2,23 +2,14 @@
 namespace src\controllers;
 
 use \core\Controller;
+use \src\models\Usuario;
 
 class HomeController extends Controller {
 
     public function index() {
-        $this->render('home', ['nome' => 'Bonieky']);
+        $nome = Usuario::select()->execute();
+        print_r($nome);
+        $this->render('home', ['nome' => $nome]);
     }
-
-    public function sobre() {
-        $this->render('sobre');
-    }
-
-    public function sobreP($args) {
-        print_r($args);
-        $this->render('ola', ['nome' => $args['nome'], 'au' => $args['au']]); 
-    }
-
-    public function cachaca() {
-        $this->render('ola');
-    }
+    
 }
